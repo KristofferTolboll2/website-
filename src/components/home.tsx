@@ -17,16 +17,24 @@ import Header from "./header";
 import Projects from "./projects";
 import { projectsList } from "data/projects-list";
 import "style/style.css";
-import UserIcon from "assets/images/user_icon.png";
+import UserIcon from "assets/images/kristoffer.jpg";
+import HighLightBadge from "./user-interface/CustomBadge";
+import useWindowDimensions from "configs/hooks/useDimensions";
 
 const ANIMATION_DURATION = 0.5;
 const ORANGE = "#ff9400";
 
 const Home = () => {
+  const { width, height } = useWindowDimensions()
+  console.log(width)
+  const isMobile = width < 768
+
+  //breakpoint 1 = 1250 px width
   return (
-    <Flex direction="column" align="center">
-      <Flex direction={["column", "column", "row"]}>
+    <Flex direction="column" align="center" style={{overflow: isMobile && 'hidden'}}>
+      <Flex direction={["column", "column", "row"]} >
         <MotionBox
+          style={{width: '100%'}}
           opacity="0"
           initial={{
             translateX: -150,
@@ -42,11 +50,13 @@ const Home = () => {
           m="auto"
           mb={[16, 16, "auto"]}
         >
+          <div className="avatar-container" >
           <Avatar
-            size={"2xl"}
+          height="full"
+              width="full"
             src={UserIcon}
-            // src={"https://avatars2.githubusercontent.com/u/37842853?v=4"}
           />
+          </div>
         </MotionBox>
         <MotionFlex
           ml={["auto", "auto", 16]}
@@ -68,29 +78,37 @@ const Home = () => {
             }
           }}
         >
-          <Header underlineColor={ORANGE} emoji="👋" mt={0} className="face">
-            Hey!
+          <Header underlineColor={ORANGE} emoji={ isMobile ? "👨‍💻" :  "🦾 📊 👨‍💻" } mt={0} className="face">
+            Welcome to my site
           </Header>
-          <Box as="h2" fontSize="2xl" fontWeight="400" textAlign="left">
-            My name is{" "}
-            <Box as="strong" fontWeight="600">
-              Ahmad
+          <Box as="h2" fontSize={isMobile ? 'sm' : '2xl'} fontWeight="400" textAlign="left">
+            My name is{" "} 
+            <Box as="strong" fontSize={isMobile ? 'sm' : '2xl'}  fontWeight="600">
+              Kristoffer Tølbøll
             </Box>{" "}
+             <Box as="span" fontSize={isMobile ? 'sm' : '2xl'}  whiteSpace="nowrap">
             and I&apos;m a{" "}
-            <Box as="span" whiteSpace="nowrap">
-              Full Stack Developer and
-            </Box>{" "}
-            <Box as="span" whiteSpace="nowrap">
-              an open source lover&nbsp;
             </Box>
+            <Box as="span" fontSize={isMobile ? 'sm' : '2xl'}  whiteSpace="nowrap">
+              Software Engineer / Data Engineer
+            </Box>{" "}
+            <Box as="span" fontSize={isMobile ? 'sm' : '2xl'}  whiteSpace="nowrap">
+              who excells within the intersection
+            </Box>
+            <br />
+            <Box as="span" fontSize={isMobile ? 'sm' : '2xl'}  whiteSpace="nowrap">
+                 between  Software and Business.
+            </Box>
+            <br />
             from{" "}
             <Box as="span" whiteSpace="nowrap">
-              Pakistan 🇵🇰
+              Copenhagen, Denmark 🇩🇰
             </Box>
           </Box>
-          <Box as="h2" fontSize="2xl" fontWeight="400" mt={5} textAlign="left">
-            This is my digital garden, where I write about the things I'm
-            working on and share what I've learned. 😊
+          <Box as="h2" fontSize={isMobile ? 'sm' : '2xl'}  fontWeight="400" mt={5} textAlign="left" >
+            Through years of experience i have practised in the field of data science, machine learning and data engineering.
+            I have a strong background in Software Engineering and have worked in a variety of industries from Consulting, Social Media and Gambling and Finance.
+            I love learning new technologies and thinking out of the 📦 to find the best possible solution for a problem.
           </Box>
         </MotionFlex>
       </Flex>
@@ -108,7 +126,7 @@ const Home = () => {
             duration: ANIMATION_DURATION
           }
         }}
-      >
+      > 
         <Box mt={10}>
           <Stack
             mb={10}
@@ -128,27 +146,31 @@ const Home = () => {
             </Text>
             <UnorderedList textAlign="left" paddingLeft={5} m={0}>
             <ListItem>
-                <Link as={NavLink} to="/open-source">
-                  Live/Local Github Repos
-                  <Badge ml="1" colorScheme="green">
-                    New
-                  </Badge>
+                <Link as={NavLink} to="/test123" target="_blank">
+                  My Blog
+                  <HighLightBadge badgeType="personal" />
+                  <HighLightBadge badgeType="tech" />
                 </Link>
               </ListItem>
               <ListItem>
                 <Link as={NavLink} to="/story-timeline">
-                  Story page
+                  My Story
                 </Link>
+                 <HighLightBadge badgeType="personal" />
               </ListItem>
               <ListItem>
                 <Link as={NavLink} to="/tech-stack">
-                  Tech Stack
+                  My prefeered technologies and philosophies 
                 </Link>
+                <HighLightBadge badgeType="tech" />
               </ListItem>
               <ListItem>
                 <Link as={NavLink} to="/achievements">
-                  Achievements
+                  Achievements 
                 </Link>
+                <Badge ml="1" colorScheme="green">
+                    Tech
+                  </Badge>
               </ListItem>
             </UnorderedList>
           </Stack>

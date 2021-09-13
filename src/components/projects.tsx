@@ -6,7 +6,7 @@ import { AnimateSharedLayout } from "framer-motion";
 import { MotionBox } from "./motion";
 
 interface ProjectsProps {
-  projects: project[];
+  projects: Project[];
 }
 
 const ORANGE = "#ff9400";
@@ -29,6 +29,7 @@ const Projects: React.FC<ProjectsProps> = ({ projects }) => {
                 logo={project.logo}
                 link={project.link}
                 technologies={project.technologies}
+                business={project.business}
               />
             </MotionBox>
           ))}

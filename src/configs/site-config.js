@@ -4,14 +4,15 @@ import {
   FaDev,
   FaLinkedin,
   FaQuora,
-  FaTwitter
+  FaTwitter,
+  FaFacebook
 } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 const siteConfig = {
-  copyright: `Copyright © ${new Date().getFullYear()} Muhammad Ahmad. All Rights Reserved.`,
+  copyright: `Copyright © ${new Date().getFullYear()} Kristoffer Tølbøll. All Rights Reserved.`,
   author: {
-    name: "Muhammad Ahmad",
+    name: "Kristoffer Tølbøll",
     accounts: [
       {
         url: "https://github.com/MA-Ahmad",
@@ -20,32 +21,20 @@ const siteConfig = {
         icon: <FaGithub />
       },
       {
-        url: "https://twitter.com/muhammad_ahmaad",
-        label: "Twitter Account",
-        type: "twitter",
-        icon: <FaTwitter />
-      },
-      {
-        url: "https://dev.to/m_ahmad",
-        label: "Dev Account",
-        type: "gray",
-        icon: <FaDev />
-      },
-      {
-        url: "https://linkedin.com/in/muhammad-ahmad20",
+        url: "https://www.linkedin.com/in/kristoffer-tølbøll-19b54210b",
         label: "LinkedIn Account",
         type: "linkedin",
         icon: <FaLinkedin />
       },
       {
-        url: "https://www.quora.com/profile/Muhammad-Ahmad-66",
-        label: "Quora Account",
-        type: "red",
-        icon: <FaQuora />
+        url: "https://www.facebook.com/profile.php?id=100002844186924",
+        label: "Facebook",
+        type: "blue",
+        icon: <FaFacebook />
       },
       {
-        url: "mailto:muhammad.ahmad8043@gmail.com",
-        label: "Mail ahmad",
+        url: "mailto:kristofferlocktolboll@gmail.com",
+        label: "Kristoffer Tølbøll",
         type: "gray",
         icon: <FiMail />
       }

@@ -24,9 +24,8 @@ import { articles } from "data/posts/articles";
 import { getTagColor } from "style/theme";
 import Carousel from "components/blog/carousel";
 
-export interface PostProps {}
 
-const NotebookPost: React.SFC<PostProps> = () => {
+const NotebookPost = () => {
   const textColor = useColorModeValue("gray.500", "gray.200");
   const post = articles[4];
 
@@ -103,7 +102,7 @@ const NotebookPost: React.SFC<PostProps> = () => {
           <Button
             ml={2}
             variant="outline"
-            size={["sm"]}
+            size={"sm"}
             color={useColorModeValue("green.600", "green.200")}
             bg={useColorModeValue("white", "gray.800")}
             leftIcon={<BiLinkExternal size={18} />}
@@ -115,7 +114,7 @@ const NotebookPost: React.SFC<PostProps> = () => {
           <Button
             ml={2}
             variant="outline"
-            size={["sm"]}
+            size={"sm"}
             color={useColorModeValue("green.600", "green.200")}
             bg={useColorModeValue("white", "gray.800")}
             leftIcon={<FiGithub size={18} />}

@@ -21,6 +21,18 @@ import heroku from "assets/images/skills/heroku.png";
 import docean from "assets/images/skills/digital-ocean.png";
 import aws from "assets/images/skills/aws.png";
 import nginx from "assets/images/skills/nginx.png";
+import { MetaData } from "./types/types";
+
+
+
+export const metaData: MetaData = {
+  title: "Kristoffer Tølbøll - Software Engineer, Entrepeneur, Philantropist",
+  meta: {
+    description: "This site is a personal portfolio for Kristoffer Tølbøll",
+    keywords: ["Softeware", "Programming", "Business", "Kristoffer", "Tølbøll", "Entrepeneur"]
+  }
+}
+
 
 export const companies = [
   {

@@ -9,6 +9,7 @@ import Achievements from "./achievements";
 import NotebookPost from "./blog/notebook-app/notebook-post";
 // import EducationStory from "./education-story";
 import MyStory from "./my-story";
+import { CustomRoute } from "data/types/types";
 
 const routes = [
   { path: "/", exact: true, name: "Home", component: Home },

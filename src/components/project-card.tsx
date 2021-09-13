@@ -6,10 +6,12 @@ import {
   useColorModeValue,
   Tag,
   Link,
+  Box
 } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTagColor } from "style/theme";
 import LazyImage from "./lazy-image";
+import * as _ from 'lodash'
 
 interface ProjectCardProps {
   title: string;
@@ -18,6 +20,7 @@ interface ProjectCardProps {
   blurHash: string;
   link: string;
   technologies: string[];
+  business: string[]
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -26,7 +29,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   logo,
   blurHash,
   link,
-  technologies
+  technologies,
+  business
+  
 }) => {
   const textColor = useColorModeValue("gray.500", "gray.200");
   const [isOpen, setIsOpen] = React.useState(false);
@@ -75,7 +80,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <HStack spacing="1">
                   {technologies.map(tech => (
                     <Tag size="sm" colorScheme={getTagColor(tech)}>
-                      {tech}
+                      {_.upperFirst(tech)}
                     </Tag>
                   ))}
                 </HStack>
@@ -95,7 +100,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 )}
               </motion.div>
             </AnimatePresence>
-
             <AnimatePresence>
               <motion.div
                 layout
@@ -113,11 +117,24 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     {description}
                   </Text>
                 )}
+                { business &&
+                  <Box as="div" mt="5" >
+                    <HStack spacing="1">
+                      {business.map(tech => (
+                        <Tag size="md" colorScheme={getTagColor(tech)}>
+                          {_.upperFirst(tech)}
+                        </Tag>
+                      ))}
+                    </HStack>
+                  </Box>
+                }
               </motion.div>
             </AnimatePresence>
           </VStack>
         </VStack>
+             
       </HStack>
+   
     </motion.div>
   );
 };

@@ -14,7 +14,7 @@ type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">;
 
 export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = props => {
   const { toggleColorMode } = useColorMode();
-  const text = useColorModeValue("dark", "light");
+  const text = useColorModeValue("light", "dark");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
   const [play] = useSound(lightswitch, {
@@ -31,6 +31,7 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = props => {
   };
 
   return (
+    <>
     <Tooltip
       label={text === "dark" ? "Dark mode" : "Light mode"}
       aria-label="A tooltip"
@@ -48,7 +49,8 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = props => {
           bg: useColorModeValue("gray.200", "gray.900")
         }}
         {...props}
-      />
-    </Tooltip>
+        />
+      </Tooltip>
+      </>
   );
 };

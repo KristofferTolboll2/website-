@@ -177,17 +177,30 @@ export const theme = extendTheme({
   },
 });
 
-export const getTagColor = type => {
-  type = type.toLowerCase()
-  if (type === "rails" || type === "ruby") {
-    return "red";
-  } else if (type === "react") {
-    return "cyan";
-  } else if (type === "javascript") {
-    return "yellow";
-  } else if (type === "typescript" || type === "tailwindcss") {
-    return "blue";
-  } else if (type === "chakraui" || type === "css") {
-    return "teal";
+export const getTagColor = (type: string) => {
+  type = type.toLowerCase().trim()
+  switch (type) {
+    case "javascript":
+      return "yellow"
+    case "redux":
+      return "purple"
+    case "puppeteer":
+      return "teal"
+    case "typescript":
+    case "react native":
+    case "react":
+      return "blue"
+    case "postgresql":
+    case "postgres":
+      return
+    case "mongodb":
+    case "node js":
+    case "spring boot":
+      return "green"
+    case "nestjs":
+    case "java":
+      return "red"
+    
+
   }
 };

@@ -22,10 +22,10 @@ import dev2 from "assets/images/logos/dev_white.png";
 import { CardTransition } from "components/page-transitions";
 
 export interface PostCardProps {
-  article: article;
+  article: Article;
 }
 
-const PostCard: React.SFC<PostCardProps> = ({ article }) => {
+const PostCard: React.FC<PostCardProps> = ({ article }) => {
   const textColor = useColorModeValue("gray.500", "gray.200");
   const devIcon = useColorModeValue(dev, dev2);
 

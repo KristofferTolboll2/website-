@@ -13,6 +13,7 @@ import {
   Menu,
   MenuButton,
   MenuList,
+  Tooltip,
   MenuItem,
   Stack,
   Icon
@@ -20,14 +21,15 @@ import {
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
-import { FaGithub } from "react-icons/fa";
+import { Fa500Px, FaGithub, FaLinkedin, FaMailBulk, FaQuestion } from "react-icons/fa";
 import { ColorModeSwitcher } from "ColorModeSwitcher";
-import UserIcon from "assets/images/user_icon.png";
+import UserIcon from "assets/images/K-logo.png";
 import { AiTwotoneThunderbolt } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheckCircle } from "react-icons/bs";
 import { MdTimeline } from "react-icons/md";
 import { BsBook } from "react-icons/bs";
+import TopNavModal from "./TopNavModal";
 
 const webLinks = [
   { name: "About", path: "/about" },
@@ -74,6 +76,7 @@ const NavLink = (props: NavLinkProps) => {
 
 export default function TopNav() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen: isOpenModal, onOpen: onOpenModal, onClose: onCloseModal } = useDisclosure();
 
   const menuProps = {
     bg: useColorModeValue("gray.200", "gray.900"),
@@ -82,9 +85,11 @@ export default function TopNav() {
 
   return (
     <>
+      <TopNavModal onClose={onCloseModal} isOpen={isOpenModal}/>
       <Box bg={useColorModeValue("white", "gray.700")} px={4} boxShadow={"lg"}>
         <Flex
-          h={16}
+
+          h={20}
           alignItems={"center"}
           justifyContent={"space-between"}
           w={["90%", "85%", "80%"]}
@@ -102,7 +107,9 @@ export default function TopNav() {
             <Box>
               <Avatar
                 as={Link}
-                size={"sm"}
+                borderRadius="50%"
+                size={"md"}
+                backgroundColor="teal"
                 href={"/"}
                 src={UserIcon}
                 // src={"https://avatars2.githubusercontent.com/u/37842853?v=4"}
@@ -194,9 +201,9 @@ export default function TopNav() {
           <Flex alignItems={"center"}>
             <IconButton
               as={Link}
-              href={"https://github.com/MA-Ahmad"}
+              onClick={onOpenModal}
               size={"md"}
-              icon={<FaGithub />}
+              icon={<FaMailBulk size={30} />}
               aria-label={"Github account"}
               bg={useColorModeValue("white", "gray.700")}
               _hover={{
@@ -207,7 +214,6 @@ export default function TopNav() {
             <ColorModeSwitcher justifySelf="flex-end" />
           </Flex>
         </Flex>
-
         {isOpen ? (
           <Box
             pb={4}
@@ -218,7 +224,7 @@ export default function TopNav() {
             <Stack as={"nav"} spacing={4}>
               {mobileLinks.map((link, index) => (
                 <NavLink
-                  index={index}
+                  index={String(index)}
                   name={link.name}
                   path={link.path}
                   onClose={onClose}
