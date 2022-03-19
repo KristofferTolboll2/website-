@@ -29,8 +29,9 @@ const ORANGE = "#ff9400";
 
 const Home = () => {
   const { width, height } = useWindowDimensions();
-  console.log(width);
   const isMobile = width < 768;
+  console.log(width);
+
   const {
     isOpen: isOpenModal,
     onOpen: onOpenModal,

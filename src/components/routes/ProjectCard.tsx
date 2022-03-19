@@ -9,9 +9,10 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import LazyImage from "./lazy-image";
+import LazyImage from "../lazy-image";
 import * as _ from "lodash";
-import { getTagColor, getTechLogo } from "../util";
+import { getTagColor, getTechLogo } from "../../util";
+import useWindowDimensions from "configs/hooks/useDimensions";
 
 interface ProjectCardProps {
   title: string;
@@ -35,6 +36,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   const textColor = useColorModeValue("gray.500", "gray.200");
   const [isOpen, setIsOpen] = React.useState(false);
   const toggleOpen = () => setIsOpen(!isOpen);
+  const { width, height } = useWindowDimensions();
+  const isMobile = width < 768;
+
+  const parsedBusinesses = React.useMemo(() => {
+    return isMobile ? business.slice(0, 2) : business;
+  }, [height, width]);
 
   return (
     <motion.div layout onClick={toggleOpen}>
@@ -77,16 +84,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   {title}
                 </Text>
                 <HStack spacing="1" display={"flex"} flex={1} flexWrap={"wrap"}>
-                  {technologies.map((tech, index) => (
-                    <Tag
-                      size="md"
-                      colorScheme={getTagColor(tech)}
-                      key={tech + index}
-                    >
-                      {_.upperFirst(tech)} <span style={{ margin: "2px" }} />{" "}
-                      {getTechLogo(tech)}
-                    </Tag>
-                  ))}
+                  {!isMobile &&
+                    technologies.map((tech, index) => (
+                      <Tag
+                        size="md"
+                        colorScheme={getTagColor(tech)}
+                        key={tech + index}
+                      >
+                        {_.upperFirst(tech)} <span style={{ margin: "2px" }} />{" "}
+                        {getTechLogo(tech)}
+                      </Tag>
+                    ))}
                 </HStack>
               </HStack>
             </motion.div>
@@ -124,7 +132,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {business && (
                   <Box as="div" mt="5">
                     <HStack spacing="1">
-                      {business.map((tech, index) => (
+                      {parsedBusinesses.map((tech, index) => (
                         <Tag
                           size="md"
                           colorScheme={getTagColor(tech)}

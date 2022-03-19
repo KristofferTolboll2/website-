@@ -1,6 +1,6 @@
 import * as React from "react";
 import { VStack, SimpleGrid } from "@chakra-ui/react";
-import ProjectCard from "../project-card";
+import ProjectCard from "./ProjectCard";
 import Header from "../header";
 import { AnimateSharedLayout } from "framer-motion";
 import { MotionBox } from "../motion";
