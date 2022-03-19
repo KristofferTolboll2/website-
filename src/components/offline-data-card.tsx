@@ -16,14 +16,14 @@ import {
   ModalBody,
   Center,
   Flex,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/react";
 import { MotionBox } from "./motion";
-import { getTagColor } from "style/theme";
 import { AiOutlineStar, AiOutlineShareAlt } from "react-icons/ai";
 import { FiGithub } from "react-icons/fi";
 import { CardTransition } from "./page-transitions";
 import LazyImage from "./lazy-image";
+import { getTagColor } from "../util";
 interface RepositoryCardProps {
   key: number;
   title: string;
@@ -78,12 +78,12 @@ const RepositoryCard = (props: RepositoryCardProps) => {
     exit: {
       scale: 0.5,
       opacity: 0,
-      transition: { duration: 1.5, ...transition }
-    }
+      transition: { duration: 1.5, ...transition },
+    },
   };
 
   const imageVariants = {
-    hover: { scale: 1.1 }
+    hover: { scale: 1.1 },
   };
 
   return (
@@ -97,7 +97,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
           borderColor={useColorModeValue("gray.100", "gray.700")}
           _hover={{
             shadow: "lg",
-            textDecoration: "none"
+            textDecoration: "none",
           }}
           overflow="hidden"
           align="start"
@@ -122,10 +122,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
                     fallback={<Skeleton />}
                     objectFit="cover"
                   /> */}
-                  <LazyImage
-                    src={cover}
-                    blurHash={blurHash}
-                  />
+                  <LazyImage src={cover} blurHash={blurHash} />
                 </AspectRatio>
               </MotionBox>
             </MotionBox>
@@ -142,7 +139,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
                     noOfLines={1}
                     fontWeight="600"
                     align="left"
-                    onClick={e => handleLinkClick(e, url)}
+                    onClick={(e) => handleLinkClick(e, url)}
                   >
                     {title}
                   </Text>
@@ -159,7 +156,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
             <Flex justifyContent={"space-between"} width="100%">
               <Box>
                 <HStack spacing="1">
-                  {technologies.map(tech => (
+                  {technologies.map((tech) => (
                     <Tag size="sm" colorScheme={getTagColor(tech)}>
                       <Text fontSize={["0.55rem", "inherit", "inherit"]}>
                         {tech}

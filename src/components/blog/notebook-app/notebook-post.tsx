@@ -15,15 +15,14 @@ import {
   Flex,
   Box,
   Button,
-  Divider
+  Divider,
 } from "@chakra-ui/react";
 import { FaEye } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 import { BiLinkExternal } from "react-icons/bi";
 import { articles } from "data/posts/articles";
-import { getTagColor } from "style/theme";
 import Carousel from "components/blog/carousel";
-
+import { getTagColor } from "../../../util";
 
 const NotebookPost = () => {
   const textColor = useColorModeValue("gray.500", "gray.200");
@@ -85,7 +84,7 @@ const NotebookPost = () => {
           </Tooltip>
         </HStack>
         <HStack spacing={1} alignItems="center">
-          {post.tags.map(tag => (
+          {post.tags.map((tag) => (
             <Tag
               size="sm"
               padding="0 3px"

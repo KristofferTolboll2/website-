@@ -1,9 +1,4 @@
-import PhaedraLogo from "assets/images/logos/phaedra.jpeg";
-import BrainxLogo from "assets/images/logos/brainxtech.png";
-import CodenyaLogo from "assets/images/logos/codenya.png";
-import BrainplowLogo from "assets/images/logos/brainplow.jpg";
-import UniLogo from "assets/images/logos/fast.png";
-import figma from "assets/images/skills/figma.png";
+import PWCLogo from "assets/images/logos/Logo-pwc.png";
 import vscode from "assets/images/skills/vscode.png";
 import react from "assets/images/skills/react.png";
 import ruby from "assets/images/skills/ruby.png";
@@ -23,94 +18,33 @@ import aws from "assets/images/skills/aws.png";
 import nginx from "assets/images/skills/nginx.png";
 import { MetaData } from "./types/types";
 
-
-
 export const metaData: MetaData = {
   title: "Kristoffer Tølbøll - Software Engineer, Entrepeneur, Philantropist",
   meta: {
     description: "This site is a personal portfolio for Kristoffer Tølbøll",
-    keywords: ["Softeware", "Programming", "Business", "Kristoffer", "Tølbøll", "Entrepeneur"]
-  }
-}
-
+    keywords: [
+      "Softeware",
+      "Programming",
+      "Business",
+      "Kristoffer",
+      "Tølbøll",
+      "Entrepeneur",
+    ],
+  },
+};
 
 export const companies = [
   {
-    title: "Phaedra Solutions",
-    alt: "PS image",
-    role: "Senior Software Engineer",
+    title: "Price Waterhouse Coopers",
+    alt: "PWC",
+    role: "Full-stack engineer / Consultant",
     skills: ["ruby", "rails", "typescript", "javascript", "react", "aws"],
     period: "2019 - Present",
-    logo: PhaedraLogo
+    logo: PWCLogo,
   },
-  {
-    title: "Brainx Technologies",
-    alt: "BT image",
-    role: "Software Engineer",
-    skills: ["ruby", "rails", "javascript", "python"],
-    period: "2018 - 2019",
-    logo: BrainxLogo
-  },
-  {
-    title: "Codenya Studio",
-    alt: "CS image",
-    role: "Co-founder, CTO",
-    skills: ["ruby", "rails", "python", "typescript", "react", "aws"],
-    period: "2018 - Present",
-    logo: CodenyaLogo
-  },
-  {
-    title: "Brainplow",
-    alt: "Brainplow image",
-    role: "Software Engineer",
-    skills: ["javascript", "python", "angular"],
-    period: "2017 - 2018",
-    logo: BrainplowLogo
-  }
 ];
 
-export const institutes = [
-  {
-    short_title: "FAST - NUCES",
-    title: "National University of Computer and Emerging Sciences",
-    alt: "Nuces image",
-    role: "Bachelor's Degree in Computer Science",
-    skills: ["project management", "web development", "data structures"],
-    period: "2013 - 2017",
-    startingYear: "2013",
-    logo: UniLogo,
-    awards: [
-      {
-        title: "Speed Programming Battle",
-        description:
-          "Won speed programming battle which held at FAST - NUCES.",
-        date: "May 1, 2015"
-      },
-      {
-        title: "Silver Medal",
-        description:
-          "This medal was awarded to me by FAST - NUCES for getting a CGPA of 3.9 in 2nd semester.",
-        date: "May 1, 2014"
-      },
-      {
-        title: "Speed Programming Battle",
-        description:
-          "Won speed programming battle which held at FAST - NUCES.",
-        date: "Nov 1, 2013"
-      }
-    ]
-  },
-  {
-    short_title: "Govt Degree College",
-    title: "Govt Degree College",
-    alt: "college image",
-    role: "FSC",
-    skills: ["mathematic", "chemistry", "physics"],
-    period: "2011 - 2013",
-    startingYear: "2011",
-    logo: ""
-  }
-];
+export const institutes = [];
 
 export const skills = [
   {
@@ -118,125 +52,125 @@ export const skills = [
     description: "Web development",
     link: "https://rubyonrails.org/",
     type: "development",
-    image: rails
+    image: rails,
   },
   {
     name: "React",
     description: "Web development",
     link: "https://reactjs.org/",
     type: "development",
-    image: react
+    image: react,
   },
   {
     name: "Ruby",
     description: "Web development, scrapping",
     link: "https://www.ruby-lang.org/en/",
     type: "development",
-    image: ruby
+    image: ruby,
   },
   {
     name: "Python",
     description: "Web development, scrapping",
     link: "https://www.python.org/",
     type: "development",
-    image: python
+    image: python,
   },
   {
     name: "Javascript",
     description: "Web development",
     link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     type: "development",
-    image: javascript
+    image: javascript,
   },
   {
     name: "Typescript",
     description: "Web development",
     link: "https://www.typescriptlang.org/",
     type: "development",
-    image: typescript
+    image: typescript,
   },
   {
     name: "Html5",
     description: "Web layouts",
     link: "https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5",
     type: "development",
-    image: html5
+    image: html5,
   },
   {
     name: "Css3",
     description: "Web design",
     link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
     type: "design",
-    image: css3
+    image: css3,
   },
   {
     name: "Bootstrap",
     description: "Web design",
     link: "https://getbootstrap.com/",
     type: "design",
-    image: bootstrap
+    image: bootstrap,
   },
   {
     name: "Postgres",
     description: "Database",
     link: "https://www.postgresql.org/",
     type: "database",
-    image: postgres
+    image: postgres,
   },
   {
     name: "Mysql",
     description: "Database",
     link: "https://www.mysql.com/",
     type: "database",
-    image: mysql
+    image: mysql,
   },
   {
     name: "Redis",
     description: "Database",
     link: "https://redis.io/",
     type: "database",
-    image: redis
+    image: redis,
   },
   {
     name: "Heroku",
     description: "Devops",
     link: "https://www.heroku.com/",
     type: "devops",
-    image: heroku
+    image: heroku,
   },
   {
     name: "AWS",
     description: "Devops",
     link: "https://aws.amazon.com/",
     type: "devops",
-    image: aws
+    image: aws,
   },
   {
     name: "Digital Ocean",
     description: "Devops",
     link: "https://www.digitalocean.com/",
     type: "devops",
-    image: docean
+    image: docean,
   },
   {
     name: "Nginx",
     description: "Web server",
     link: "https://www.nginx.com/",
     type: "devops",
-    image: nginx
+    image: nginx,
   },
   {
     name: "Visual Studio Code",
     description: "Code editor of choice",
     link: "https://code.visualstudio.com/",
     type: "development",
-    image: vscode
+    image: vscode,
   },
   {
     name: "Figma",
     description: "Collaborative Design",
     link: "https://www.figma.com/",
     type: "design",
-    image: figma
-  }
+    image: vscode,
+  },
 ];

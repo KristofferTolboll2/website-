@@ -4,25 +4,25 @@ import {
   useColorModeValue,
   IconButton,
   IconButtonProps,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import useSound from "use-sound";
-import lightswitch from "assets/audios/lightswitch.mp3";
 
 type ColorModeSwitcherProps = Omit<IconButtonProps, "aria-label">;
 
-export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = props => {
+export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
+  const lightswitch = require("./assets/audios/lightswitch.mp3");
   const { toggleColorMode } = useColorMode();
-  const text = useColorModeValue("light", "dark");
+  const text = useColorModeValue("dark", "light");
   const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 
   const [play] = useSound(lightswitch, {
-    volume: 0.05,
+    volume: 10,
     sprite: {
       on: [0, 300],
-      off: [500, 300]
-    }
+      off: [500, 300],
+    },
   });
 
   const handleClick = () => {
@@ -32,25 +32,25 @@ export const ColorModeSwitcher: React.FC<ColorModeSwitcherProps> = props => {
 
   return (
     <>
-    <Tooltip
-      label={text === "dark" ? "Dark mode" : "Light mode"}
-      aria-label="A tooltip"
-    >
-      <IconButton
-        size="md"
-        fontSize="md"
-        variant="ghost"
-        color="current"
-        marginLeft="2"
-        onClick={handleClick}
-        icon={<SwitchIcon />}
-        aria-label={`Switch to ${text} mode`}
-        _hover={{
-          bg: useColorModeValue("gray.200", "gray.900")
-        }}
-        {...props}
+      <Tooltip
+        label={text === "dark" ? "Dark mode" : "Light mode"}
+        aria-label="A tooltip"
+      >
+        <IconButton
+          size="md"
+          fontSize="md"
+          variant="ghost"
+          color="current"
+          marginLeft="2"
+          onClick={handleClick}
+          icon={<SwitchIcon size={25} />}
+          aria-label={`Switch to ${text} mode`}
+          _hover={{
+            bg: useColorModeValue("gray.200", "gray.900"),
+          }}
+          {...props}
         />
       </Tooltip>
-      </>
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools"
+import { mode } from "@chakra-ui/theme-tools";
 
 export const theme = extendTheme({
   fonts: {
@@ -52,11 +52,11 @@ export const theme = extendTheme({
     //   }
     // },
     Popover: {
-      parts: ['popper'],
-      baseStyle: props => ({
+      parts: ["popper"],
+      baseStyle: (props) => ({
         popper: {
           zIndex: 10,
-          maxW: 'xs',
+          maxW: "xs",
           // maxW: props.width ? props.width : 'xs',
           w: props.width,
         },
@@ -176,31 +176,3 @@ export const theme = extendTheme({
     },
   },
 });
-
-export const getTagColor = (type: string) => {
-  type = type.toLowerCase().trim()
-  switch (type) {
-    case "javascript":
-      return "yellow"
-    case "redux":
-      return "purple"
-    case "puppeteer":
-      return "teal"
-    case "typescript":
-    case "react native":
-    case "react":
-      return "blue"
-    case "postgresql":
-    case "postgres":
-      return
-    case "mongodb":
-    case "node js":
-    case "spring boot":
-      return "green"
-    case "nestjs":
-    case "java":
-      return "red"
-    
-
-  }
-};

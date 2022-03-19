@@ -6,12 +6,12 @@ import {
   useColorModeValue,
   Tag,
   Link,
-  Box
+  Box,
 } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { getTagColor } from "style/theme";
 import LazyImage from "./lazy-image";
-import * as _ from 'lodash'
+import * as _ from "lodash";
+import { getTagColor, getTechLogo } from "../util";
 
 interface ProjectCardProps {
   title: string;
@@ -20,7 +20,7 @@ interface ProjectCardProps {
   blurHash: string;
   link: string;
   technologies: string[];
-  business: string[]
+  business: string[];
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -30,8 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   blurHash,
   link,
   technologies,
-  business
-  
+  business,
 }) => {
   const textColor = useColorModeValue("gray.500", "gray.200");
   const [isOpen, setIsOpen] = React.useState(false);
@@ -57,8 +56,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           src={logo}
           blurHash={blurHash}
           size="sm"
-          width={33}
-          height={33}
+          width={50}
+          height={50}
           layout="fixed"
           rounded="md"
         />
@@ -72,15 +71,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                   fontWeight="bold"
                   fontSize="md"
                   noOfLines={1}
-                  onClick={e => e.stopPropagation()}
+                  onClick={(e) => e.stopPropagation()}
                   isExternal
                 >
                   {title}
                 </Text>
-                <HStack spacing="1">
-                  {technologies.map(tech => (
-                    <Tag size="sm" colorScheme={getTagColor(tech)}>
-                      {_.upperFirst(tech)}
+                <HStack spacing="1" display={"flex"} flex={1} flexWrap={"wrap"}>
+                  {technologies.map((tech, index) => (
+                    <Tag
+                      size="md"
+                      colorScheme={getTagColor(tech)}
+                      key={tech + index}
+                    >
+                      {_.upperFirst(tech)} <span style={{ margin: "2px" }} />{" "}
+                      {getTechLogo(tech)}
                     </Tag>
                   ))}
                 </HStack>
@@ -117,24 +121,26 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                     {description}
                   </Text>
                 )}
-                { business &&
-                  <Box as="div" mt="5" >
+                {business && (
+                  <Box as="div" mt="5">
                     <HStack spacing="1">
-                      {business.map(tech => (
-                        <Tag size="md" colorScheme={getTagColor(tech)}>
-                          {_.upperFirst(tech)}
+                      {business.map((tech, index) => (
+                        <Tag
+                          size="md"
+                          colorScheme={getTagColor(tech)}
+                          key={tech + index}
+                        >
+                          {_.upperFirst(tech)}{" "}
                         </Tag>
                       ))}
                     </HStack>
                   </Box>
-                }
+                )}
               </motion.div>
             </AnimatePresence>
           </VStack>
         </VStack>
-             
       </HStack>
-   
     </motion.div>
   );
 };

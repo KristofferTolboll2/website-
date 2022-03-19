@@ -1,12 +1,12 @@
 type Project = {
-  id: number;
+  id: string;
   title: string;
   logo: string;
   link: string;
   blurHash: string;
   desc: string;
   technologies: string[];
-  business: string[]
+  business: string[];
 };
 
 type Article = {
@@ -17,13 +17,12 @@ type Article = {
   published: string;
   tags: string[];
   github_url: string;
-}
+};
 
 interface MetaData {
-  title: string,
+  title: string;
   meta: {
-    description: string,
-    keywords: string[]
-  }
+    description: string;
+    keywords: string[];
+  };
 }
-

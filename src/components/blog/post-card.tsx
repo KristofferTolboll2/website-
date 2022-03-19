@@ -12,14 +12,12 @@ import {
   Flex,
   Image,
   Badge,
-  Box
+  Box,
 } from "@chakra-ui/react";
 import { Link as NavLink } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
-import { getTagColor } from "style/theme";
-import dev from "assets/images/logos/dev.png";
-import dev2 from "assets/images/logos/dev_white.png";
 import { CardTransition } from "components/page-transitions";
+import { getTagColor } from "../../util";
 
 export interface PostCardProps {
   article: Article;
@@ -27,7 +25,7 @@ export interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ article }) => {
   const textColor = useColorModeValue("gray.500", "gray.200");
-  const devIcon = useColorModeValue(dev, dev2);
+  //const devIcon = useColorModeValue(dev, dev2);
 
   return (
     <CardTransition>
@@ -123,7 +121,7 @@ const PostCard: React.FC<PostCardProps> = ({ article }) => {
             </Text>
           </Tooltip>
           <HStack spacing={1} alignItems="center" d={["none", "none", "flex"]}>
-            {article.tags.map(tag => (
+            {article.tags.map((tag) => (
               <Tag
                 size="sm"
                 padding="0 3px"
@@ -136,7 +134,7 @@ const PostCard: React.FC<PostCardProps> = ({ article }) => {
           </HStack>
         </HStack>
         <HStack spacing={1} alignItems="center" d={["flex", "flex", "none"]}>
-          {article.tags.map(tag => (
+          {article.tags.map((tag) => (
             <Tag
               size="sm"
               padding="0 3px"

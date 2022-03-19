@@ -8,12 +8,12 @@ import {
   Tag,
   Icon,
   Flex,
-  Tooltip
+  Tooltip,
 } from "@chakra-ui/react";
 import { MotionBox } from "./motion";
-import { getTagColor } from "style/theme";
 import { BiGitRepoForked, BiStar } from "react-icons/bi";
 import { FiGithub } from "react-icons/fi";
+import { getTagColor } from "../util";
 
 interface RepositoryCardProps {
   title: string;
@@ -24,14 +24,8 @@ interface RepositoryCardProps {
   forks_count: number;
 }
 const RepositoryCard = (props: RepositoryCardProps) => {
-  const {
-    title,
-    description,
-    language,
-    url,
-    stargazers_count,
-    forks_count,
-  } = props;
+  const { title, description, language, url, stargazers_count, forks_count } =
+    props;
 
   const handleLinkClick = (
     e: React.MouseEvent<HTMLParagraphElement, MouseEvent>,
@@ -54,7 +48,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
         borderColor={useColorModeValue("gray.100", "gray.700")}
         _hover={{
           shadow: "lg",
-          textDecoration: "none"
+          textDecoration: "none",
         }}
       >
         <VStack overflow="hidden" align="start" spacing={1}>
@@ -62,7 +56,7 @@ const RepositoryCard = (props: RepositoryCardProps) => {
             <Flex
               justifyContent={"space-between"}
               width="100%"
-              onClick={e => handleLinkClick(e, url)}
+              onClick={(e) => handleLinkClick(e, url)}
             >
               <Tooltip hasArrow label="Github link" placement="top">
                 <HStack cursor={"pointer"}>
@@ -78,7 +72,10 @@ const RepositoryCard = (props: RepositoryCardProps) => {
                   </Text>
                 </HStack>
               </Tooltip>
-              <HStack cursor={"pointer"} onClick={e => handleLinkClick(e, url)}>
+              <HStack
+                cursor={"pointer"}
+                onClick={(e) => handleLinkClick(e, url)}
+              >
                 {forks_count && (
                   <Box _hover={{ color: "blue.500" }}>
                     <Icon as={BiGitRepoForked} boxSize="0.9em" mt={"1px"} />
