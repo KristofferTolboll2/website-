@@ -98,18 +98,21 @@ export default function TopNavModal({ isOpen, onClose }: Props): ReactElement {
     if (response.status === 201) {
       onClose();
     }
-    console.log(response);
   };
   const isButtonDisabled = React.useMemo(() => {
     let isDisabled = false;
     Object.keys(inputData).map((key) => {
-      if (inputData[key].error || inputData[key].value.length < 1) {
+      console.log(key);
+      if (
+        inputData[key].error || key === "message"
+          ? inputData[key].value.length < 5
+          : inputData[key].value.length < 1
+      ) {
         isDisabled = true;
       }
     });
     return isDisabled;
   }, [inputData]);
-  console.log(inputData);
   return (
     <div>
       <Box ref={modalRef} tabIndex={-1} aria-label="Focus moved to this box">

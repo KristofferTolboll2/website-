@@ -58,7 +58,6 @@ interface NavLinkProps {
 }
 
 const NavLink = (props: NavLinkProps) => {
-  console.log(props);
   const location = useLocation();
 
   const foundIcon = props.icon === "home" && (
@@ -92,7 +91,6 @@ export default function TopNav() {
 
   const openModalHandler = (e) => {
     const event = new CustomEvent("open-modal", { detail: { isOpen: true } });
-    console.log(event);
     window.dispatchEvent(event);
   };
   const menuProps = {
